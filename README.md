@@ -60,3 +60,56 @@
 	</ul>
 </template>
 ```
+
+### User Input 
+
+```
+	const newItemPriority = ref('low')
+---
+method 1
+	Priority:
+	<label>
+		<input type="radio" v-model="newItemPriority" value="low">
+		Low
+	</label>
+	<label>
+		<input type="radio" v-model="newItemPriority" value="high">
+		High
+	</label>
+---
+method 2
+	<label>
+		Priority:
+		<select v-model="newPriority">
+			<option value="low">Low</option>
+			<option value="high">High</option>
+		</select>
+	</label>
+
+---
+method 3
+
+	const newItemHighPriority = ref(false)
+
+	<label>
+		<input type="checkbox" v-model="newItemHighPriority">High Priority
+	</label>
+
+----
+method 4
+
+	const iceCreamFlavors = ref([])
+
+	<label>
+		<input type="checkbox" value="vanilla" v-model="iceCreamFlavors">Vanilla
+	</label>
+
+	<label>
+		<input type="checkbox" value="chocolate" v-model="iceCreamFlavors">Chocolate
+	</label>
+
+	<label>
+		<input type="checkbox" value="strawberry" v-model="iceCreamFlavors">
+		Strawberry
+	</label>
+```
