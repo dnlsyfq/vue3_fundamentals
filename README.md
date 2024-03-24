@@ -113,3 +113,53 @@ method 4
 		Strawberry
 	</label>
 ```
+
+* add item
+```
+const items = ref([
+	{'id':1, label:'10 party hats'},
+	{'id':2, label:'2 board games'},
+	{'id':3, label:'20 cups'}
+])
+const newItem = ref()
+const newItemPriority = ref('low')
+
+<div class="add-item-form">
+	
+	<input v-model.trim ="newItem" 
+		v-on:keyup.enter="items.push({id:items.length + 1, label:newItem})"
+		type="text" placeholder="Add an item">
+	
+
+	<label>
+		<input type="checkbox" v-model="newItemHighPriority">High Priority
+	</label>
+
+	<button 
+		v-on:click="items.push({id:items.length + 1, label:newItem})" 
+		class="btn btn-primary">Save Item
+	</button>
+	
+</div>
+
+```
+### user input form
+
+```
+	<form 
+		class="add-item-form"
+		@submit.prevent="items.push({id:items.length+1, label:newItem})"
+	>
+		
+		<input v-model.trim ="newItem" type="text" placeholder="Add an item">
+		
+	
+		<label>
+			<input type="checkbox" v-model="newItemHighPriority">High Priority
+		</label>
+
+		<button 
+			class="btn btn-primary">Save Item
+		</button>
+	</form>
+```
